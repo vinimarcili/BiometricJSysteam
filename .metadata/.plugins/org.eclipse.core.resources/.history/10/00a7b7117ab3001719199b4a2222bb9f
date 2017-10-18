@@ -1,0 +1,40 @@
+import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+import javax.sound.midi.Patch;
+
+import com.machinezoo.sourceafis.FingerprintMatcher;
+import com.machinezoo.sourceafis.FingerprintTemplate;
+
+public class Bootstrap {
+	public static void main(String[] args) {
+		
+
+		try {
+			Path currentDir = Paths.get(".");
+			File probeFile = new File("src/images/1.png");
+			File candidateFile = new File("src/images/1.png");
+			
+			byte[] probeImage;
+			probeImage = Files.readAllBytes(Paths.get(probeFile.getAbsolutePath()));
+
+			byte[] candidateImage = Files.readAllBytes(Paths.get(candidateFile.getAbsolutePath()));
+			FingerprintTemplate probe = new FingerprintTemplate(probeImage);
+			FingerprintTemplate candidate = new FingerprintTemplate(candidateImage);
+
+			FingerprintMatcher matcher = new FingerprintMatcher(probe);
+			double score = matcher.match(candidate);
+			
+			System.out.println("My score is: " +  score);
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

@@ -1,0 +1,15 @@
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+import com.machinezoo.sourceafis.FingerprintTemplate;
+
+public class Bootstrap {
+	public static void main(String[] args) {
+		byte[] probeImage = Files.readAllBytes(Paths.get("probe.jpeg"));
+		byte[] candidateImage = Files.readAllBytes(Paths.get("candidate.jpeg"));
+		FingerprintTemplate probe = new FingerprintTemplate(probeImage);
+		FingerprintTemplate candidate = new FingerprintTemplate(candidateImage);
+		
+		
+	}
+}

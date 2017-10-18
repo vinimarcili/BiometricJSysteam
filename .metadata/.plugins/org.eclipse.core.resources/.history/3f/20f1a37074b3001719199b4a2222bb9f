@@ -1,0 +1,27 @@
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+import com.machinezoo.sourceafis.FingerprintMatcher;
+import com.machinezoo.sourceafis.FingerprintTemplate;
+
+public class Bootstrap {
+	public static void main(String[] args) {
+		
+		try {
+			byte[] probeImage;
+			probeImage = Files.readAllBytes(Paths.get("images","1.png"));
+			byte[] candidateImage = Files.readAllBytes(Paths.get("images","2.png"));
+			FingerprintTemplate probe = new FingerprintTemplate(probeImage);
+			FingerprintTemplate candidate = new FingerprintTemplate(candidateImage);
+			
+			FingerprintMatcher matcher = new FingerprintMatcher(probe);
+			double score = matcher.match(candidate);
+			
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+	}
+}
