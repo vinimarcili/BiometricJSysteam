@@ -54,7 +54,10 @@ public class LoginBiometric {
 						User user = analise.getFingerOwner(fingerPath);
 						//Caso tenha um usuário, eu redireciono ele para a tela seguinte
 						if(user != null) {
-							JOptionPane.showMessageDialog(null, "O dono da digital é o " + user.getName());
+							DashboradView dash = new DashboradView(user);
+							frame.dispose();
+							dash.view();
+//							JOptionPane.showMessageDialog(null, "O dono da digital é o " + user.getName());
 						}else {
 							JOptionPane.showMessageDialog(null, "Não foi encontrado um usuário com essa digital");
 						}
