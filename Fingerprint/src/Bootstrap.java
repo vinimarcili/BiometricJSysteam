@@ -17,9 +17,11 @@ import com.machinezoo.sourceafis.FingerprintTemplate;
 import dao.DAOUser;
 import model.Roles;
 import model.User;
-import views.BiometricView;
+
 import views.DashboradView;
 import views.LoginBiometric;
+
+
 
 public class Bootstrap {
 	public static void main(String[] args) {

@@ -2,9 +2,12 @@ package helpers;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+
+import org.apache.commons.io.IOUtils;
 
 import com.machinezoo.sourceafis.FingerprintMatcher;
 import com.machinezoo.sourceafis.FingerprintTemplate;
@@ -15,7 +18,7 @@ import model.User;
 public class FingerAnalysis {
 	private final int MINIMO_SCORE = 40;
 	public User getFingerOwner(String fingerPath) throws IOException {
-//		try {
+
 		File probeFile = new File(fingerPath);
 		
 		ArrayList<User> listUsers = new DAOUser().getAllUsers();
@@ -24,14 +27,14 @@ public class FingerAnalysis {
 		System.out.println("Path of image " + fingerPath);
 		for (User user : listUsers) {
 			System.out.println(user.getName());
-			for(File candidateFile : user.getFingerprints()) {
+			for(String candidateFile : user.getPaths()) {
 
 				
 				byte[] probeImage;
-				System.out.println("Testing the file " + candidateFile.getAbsolutePath());
+				System.out.println("Testing the file " + candidateFile);
 				probeImage = Files.readAllBytes(Paths.get(probeFile.getAbsolutePath()));
 
-				byte[] candidateImage = Files.readAllBytes(Paths.get(candidateFile.getAbsolutePath()));
+				byte[] candidateImage = this.convert(candidateFile);
 				FingerprintTemplate probe = new FingerprintTemplate(probeImage);
 				FingerprintTemplate candidate = new FingerprintTemplate(candidateImage);
 
@@ -47,11 +50,11 @@ public class FingerAnalysis {
 		}
 		return null;
 		
-
-
-//	} catch (IOException e) {
-//		// TODO Auto-generated catch block
-//		e.printStackTrace();
-//	}
 	}	
+	
+	private byte[] convert(String path) throws IOException {
+		System.out.println(path);
+		InputStream is = FingerAnalysis.class.getResourceAsStream("../"+path);
+		return IOUtils.toByteArray(is);
+	}
 }

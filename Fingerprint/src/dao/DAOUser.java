@@ -19,6 +19,7 @@ public class DAOUser {
 		User tom = new User("Tom",Roles.ADMIN,"src/images/tom.png");
 		//Pega as digitais do tom
 		for(int i = 1; i <= 8; i++) {
+			tom.getPaths().add("images/tom_fingerprints/"+i+".jpg");
 			listFinger.add(new File("src/images/tom_fingerprints/"+i+".jpg"));
 		}
 		tom.setFingerprints(listFinger);
@@ -28,6 +29,7 @@ public class DAOUser {
 		//Pega as digitais do tom
 		listFinger = new ArrayList<File>();
 		for(int i = 1; i <= 8; i++) {
+			jerry.getPaths().add("images/jerry_fingerprints/"+i+".jpg");
 			listFinger.add(new File("src/images/jerry_fingerprints/"+i+".jpg"));
 		}
 		jerry.setFingerprints(listFinger);
@@ -37,6 +39,7 @@ public class DAOUser {
 		//Pega as digitais do tom
 		listFinger = new ArrayList<File>();
 		for(int i = 1; i <= 8; i++) {
+			mod.getPaths().add("images/mod_fingerprints/"+i+".jpg");
 			listFinger.add(new File("src/images/mod_fingerprints/"+i+".jpg"));
 		}
 		mod.setFingerprints(listFinger);

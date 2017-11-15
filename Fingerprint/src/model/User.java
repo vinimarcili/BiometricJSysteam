@@ -9,6 +9,7 @@ public class User {
 	private Roles role;
 	private String profile;
 	private ArrayList<File> fingerprints = new ArrayList<File>();
+	private ArrayList<String> paths = new ArrayList<String>();
 
 	public User() {
 
@@ -50,6 +51,14 @@ public class User {
 
 	public void setProfile(String profile) {
 		this.profile = profile;
+	}
+	
+	public ArrayList<String> getPaths() {
+		return paths;
+	}
+
+	public void setPaths(ArrayList<String> paths) {
+		this.paths = paths;
 	}
 
 }
