@@ -53,8 +53,9 @@ public class FingerAnalysis {
 	}	
 	
 	private byte[] convert(String path) throws IOException {
+		path = "../" + path;
 		System.out.println(path);
-		InputStream is = FingerAnalysis.class.getResourceAsStream("../"+path);
+		InputStream is = FingerAnalysis.class.getResourceAsStream(path);
 		return IOUtils.toByteArray(is);
 	}
 }
