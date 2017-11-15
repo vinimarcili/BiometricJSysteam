@@ -32,6 +32,16 @@ public class DAOUser {
 		}
 		jerry.setFingerprints(listFinger);
 		list.add(jerry);
+		
+		User mod = new User("Moderator", Roles.MOD,"src/images/jerry.jpg");
+		//Pega as digitais do tom
+		listFinger = new ArrayList<File>();
+		for(int i = 1; i <= 8; i++) {
+			listFinger.add(new File("src/images/mod_fingerprints/"+i+".jpg"));
+		}
+		mod.setFingerprints(listFinger);
+		list.add(mod);
+		
 		return list;
 	}
 }
