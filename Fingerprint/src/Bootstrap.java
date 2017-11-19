@@ -25,12 +25,6 @@ import views.LoginBiometric;
 
 public class Bootstrap {
 	public static void main(String[] args) {
-//		User user = new User("teste",Roles.ADMIN,"...");
-		
-//		DashboradView dash = new DashboradView(user);
-//		dash.view();
 		new LoginBiometric().view();
-		
-		
 	}
 }

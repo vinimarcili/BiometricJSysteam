@@ -16,7 +16,7 @@ public class DAOUser {
 		ArrayList<File> listFinger = new ArrayList<File>();
 		
 		ArrayList<User> list = new ArrayList<User>();
-		User tom = new User("Tom",Roles.ADMIN,"src/images/tom.png");
+		User tom = new User("Tom",Roles.ADMIN);
 		//Pega as digitais do tom
 		for(int i = 1; i <= 8; i++) {
 			tom.getPaths().add("images/tom_fingerprints/"+i+".jpg");
@@ -25,7 +25,7 @@ public class DAOUser {
 		tom.setFingerprints(listFinger);
 		list.add(tom);
 		
-		User jerry = new User("Jerry", Roles.USER,"src/images/jerry.jpg");
+		User jerry = new User("Jerry", Roles.USER);
 		//Pega as digitais do tom
 		listFinger = new ArrayList<File>();
 		for(int i = 1; i <= 8; i++) {
@@ -35,7 +35,7 @@ public class DAOUser {
 		jerry.setFingerprints(listFinger);
 		list.add(jerry);
 		
-		User mod = new User("Moderator", Roles.MOD,"src/images/jerry.jpg");
+		User mod = new User("Moderator", Roles.MOD);
 		//Pega as digitais do tom
 		listFinger = new ArrayList<File>();
 		for(int i = 1; i <= 8; i++) {

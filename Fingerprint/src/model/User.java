@@ -15,10 +15,10 @@ public class User {
 
 	}
 
-	public User(String name, Roles role, String profile) {
+	public User(String name, Roles role) {
 		this.name = name;
 		this.role = role;
-		this.profile = profile;
+		this.profile = "";
 	}
 
 	public String getName() {

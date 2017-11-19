@@ -57,7 +57,6 @@ public class LoginBiometric {
 							DashboradView dash = new DashboradView(user);
 							frame.dispose();
 							dash.view();
-//							JOptionPane.showMessageDialog(null, "O dono da digital é o " + user.getName());
 						}else {
 							JOptionPane.showMessageDialog(null, "Não foi encontrado um usuário com essa digital");
 						}
@@ -65,7 +64,6 @@ public class LoginBiometric {
 						JOptionPane.showMessageDialog(null, "Informe ao menos uma imagem");
 					}
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}

@@ -35,28 +35,7 @@ public class DashboradView {
 		Object rowData[][] = this.generateDataForTable();
 			    
 		JTable table = new JTable(new MyTableModel(columnNames, rowData, user.getRole()));
-	    
-
-	    		System.out.println(user.getRole());
-		//Componentes para admin
-		if(user.getRole() == Roles.ADMIN) {
-//			JLabel lbAdmin = new JLabel("Parabens, você é admin, GRANDE BOSTA!");
-//			lbAdmin.setSize(400,150);
-//			lbAdmin.setLocation(180,lbTitle.getY() +  lbTitle.getHeight() + 20);
-//			frame.add(lbAdmin);
-//			TableColumn column = null;
-//			for (int i = 0; i < 5; i++) {
-//			    column = table.getColumnModel().getColumn(i);
-//			    System.out.println(i);
-//			    if (i > 2) {
-//			    	column.setPreferredWidth(1);
-//			        column.setResizable(false);
-//			    } 
-//			}
-		}else if(user.getRole() == Roles.USER) {
-			
-		}
-		
+	    		
 		
 		JScrollPane scrollPane = new JScrollPane(table);
 	    scrollPane.setLocation(10, lbTitle.getY() +  lbTitle.getHeight());
