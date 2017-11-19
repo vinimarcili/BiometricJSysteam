@@ -3,6 +3,7 @@ package helpers;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -53,9 +54,9 @@ public class FingerAnalysis {
 	}	
 	
 	private byte[] convert(String path) throws IOException {
-		path = "../" + path;
-		System.out.println(path);
-		InputStream is = FingerAnalysis.class.getResourceAsStream(path);
+		System.out.println("Trying to Path "+path); 
+		URL is  = getClass().getClassLoader().getResource(path);		
 		return IOUtils.toByteArray(is);
+		
 	}
 }

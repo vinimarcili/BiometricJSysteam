@@ -2,13 +2,13 @@ package views;
 
 import java.util.Random;
 
-import javax.management.relation.Role;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
-import javax.swing.table.TableColumn;
+
 
 import model.Roles;
 import model.User;
@@ -133,24 +133,23 @@ public class DashboradView {
 			Random random = new Random();
 			String value = "";
 			dataRows[i][0] = i+1;
-			System.out.println(i+1);
+			
 			
 			value = propNames[random.nextInt(propNames.length - 1)];
 			dataRows[i][1] = value ;
-			System.out.println(value );
+			
 			
 			value = status[random.nextInt(status.length )];
 			dataRows[i][2] = value;
-			System.out.println(value);
+			
 			
 			value = addresNames[random.nextInt(addresNames.length - 1)];
 			dataRows[i][3] = value;
-			System.out.println(value);
+		
 			
 			
 			value = agrotoxicosNames[random.nextInt(agrotoxicosNames.length - 1)];
 			dataRows[i][4] = value;
-			System.out.println(value);
 		
 		}
 		
@@ -162,7 +161,11 @@ public class DashboradView {
 
 
 class MyTableModel extends AbstractTableModel {
-    private String[] columnNames = null;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String[] columnNames = null;
     private Object[][] data = null;
     private Roles myRole = null;
     
